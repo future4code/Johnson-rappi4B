@@ -7,6 +7,7 @@ import {
   goToAddAddressPage,
   goToLoginPage,
 } from "./../../routes/coordinator";
+import CardRestaurant from "../../components/CardRestaurant/CardRestaurant";
 
 const HomePage = () => {
   const history = useHistory();
@@ -37,12 +38,11 @@ const HomePage = () => {
 
 
   const foods = data && data.map((loja)=>{
-    return <li key={loja.id}>{loja.name}</li>
+    return <CardRestaurant key={loja.id} loja={loja} />
   }
 )
 
   return (<HomePageContainer>
-    HOME PAGE
     {foods}
     </HomePageContainer>)
 };

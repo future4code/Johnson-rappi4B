@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import LogoRappi from "../assets/logo-white.svg";
+import LogoRappi from "../../assets/logo-white.svg";
 
 const SplashScreenContainer = styled.div`
     display: flex;

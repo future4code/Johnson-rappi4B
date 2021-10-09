@@ -1,6 +1,6 @@
 import React from "react";
 // import { HomePageContainer } from "./styled";
-import SplashScreen from "../../components/SplashScreen";
+import SplashScreen from "../../components/SplashScreen/SplashScreen";
 import ReactDOM from "react-dom";
 import { useHistory } from "react-router-dom";
 
