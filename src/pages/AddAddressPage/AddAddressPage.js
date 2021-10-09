@@ -2,9 +2,10 @@ import axios from "axios";
 import React from "react";
 import { BASE_URL } from "../../constants/urls";
 import useForm from "../../hooks/useForm";
-import { AddAddressPageContainer } from "./styled";
+import { AddAddressPageContainer, ContainerFomrAddress } from "./styled";
 import { useHistory } from "react-router";
 import { goToLoginPage } from "../../routes/coordinator";
+import { Button, TextField } from "@material-ui/core";
 
 const AddAddressPage = () => {
   const history = useHistory();
@@ -28,7 +29,7 @@ const AddAddressPage = () => {
         console.log(res.data);
         clear();
         localStorage.setItem("token", res.data.token);
-        alert('Ufa...agora bora de lanches!')
+        alert("Ufa...agora bora de lanches!");
         goToLoginPage(history);
       })
       .catch((err) => {
@@ -37,74 +38,96 @@ const AddAddressPage = () => {
   };
 
   return (
-    <AddAddressPageContainer>
-      <span>Meu Endereço</span>
+    <>
+      <ContainerFomrAddress>
+        <AddAddressPageContainer>
+          <h3>Meu Endereço</h3>
 
-      <form onSubmit={newAddress}>
-        <input
-          name={"street"}
-          label={"Logradouro"}
-          value={form.street}
-          onChange={handleInputChange}
-          placeholder="Rua / Av."
-          type={"text"}
-          required
-        />
+          <form onSubmit={newAddress}>
+            <TextField
+              name={"street"}
+              label={"Logradouro"}
+              value={form.street}
+              onChange={handleInputChange}
+              placeholder="Rua / Av."
+              type={"text"}
+              required
+              variant="outlined"
+              fullWidth
+              margin="normal"
+            />
 
-        <input
-          name={"number"}
-          label={"Número"}
-          value={form.number}
-          onChange={handleInputChange}
-          placeholder="Número"
-          type={"number"}
-          required
-        />
+            <TextField
+              name={"number"}
+              label={"Número"}
+              value={form.number}
+              onChange={handleInputChange}
+              placeholder="Número"
+              type={"number"}
+              required
+              variant="outlined"
+              fullWidth
+              margin="normal"
+            />
 
-        <input
-          name={"complement"}
-          label={"Complemento"}
-          value={form.complement}
-          onChange={handleInputChange}
-          placeholder="Apto. / Bloco"
-          type={"text"}
-        />
+            <TextField
+              name={"complement"}
+              label={"Complemento"}
+              value={form.complement}
+              onChange={handleInputChange}
+              placeholder="Apto. / Bloco"
+              type={"text"}
+              variant="outlined"
+              fullWidth
+              margin="normal"
+            />
 
-        <input
-          name={"neighbourhood"}
-          label={"Bairro"}
-          value={form.neighbourhood}
-          onChange={handleInputChange}
-          placeholder="Bairro"
-          type={"text"}
-          required
-        />
+            <TextField
+              name={"neighbourhood"}
+              label={"Bairro"}
+              value={form.neighbourhood}
+              onChange={handleInputChange}
+              placeholder="Bairro"
+              type={"text"}
+              required
+              variant="outlined"
+              fullWidth
+              margin="normal"
+            />
 
-        <input
-          name={"city"}
-          label={"Cidade"}
-          value={form.city}
-          onChange={handleInputChange}
-          placeholder="Cidade"
-          type={"text"}
-          required
-        />
+            <TextField
+              name={"city"}
+              label={"Cidade"}
+              value={form.city}
+              onChange={handleInputChange}
+              placeholder="Cidade"
+              type={"text"}
+              required
+              variant="outlined"
+              fullWidth
+              margin="normal"
+            />
 
-        <input
-          name={"state"}
-          label={"Estado"}
-          value={form.state}
-          onChange={handleInputChange}
-          placeholder="Ex.: SP"
-          type={"text"}
-          required
-          maxLength="2"
-          pattern={"[A-Z]{2}"}
-        />
+            <TextField
+              name={"state"}
+              label={"Estado"}
+              value={form.state}
+              onChange={handleInputChange}
+              placeholder="Ex.: SP"
+              type={"text"}
+              required
+              maxLength="2"
+              pattern={"[A-Z]{2}"}
+              variant="outlined"
+              fullWidth
+              margin="normal"
+            />
 
-        <button>Salvar</button>
-      </form>
-    </AddAddressPageContainer>
+            <Button variant="contained">Salvar</Button>
+          </form>
+        </AddAddressPageContainer>
+      </ContainerFomrAddress>
+    </>
   );
 };
 
