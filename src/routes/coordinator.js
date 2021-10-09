@@ -14,7 +14,7 @@ export const goToProfilePage = (history) => {
     history.push("/perfil")
 }
 
-export const goToAddAdressPage = (history) => {
+export const goToAddAddressPage = (history) => {
     history.push("/endereco")
 }
 

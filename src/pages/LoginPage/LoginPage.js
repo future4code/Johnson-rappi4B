@@ -22,7 +22,6 @@ const LoginPage = () => {
     axios
       .post(`${BASE_URL}/login`, form)
       .then((res) => {
-        console.log(res.data);
         clear();
         localStorage.setItem("token", res.data.token);
         goToHomePage(history);
