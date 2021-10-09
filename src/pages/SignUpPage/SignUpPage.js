@@ -5,12 +5,12 @@ import { SignUpPageContainer } from "./styled";
 import { goToAddAddressPage } from "../../routes/coordinator";
 import axios from "axios";
 import useForm from "../../hooks/useForm";
-import { Button, TextField } from "@material-ui/core";
+import {  TextField, Button } from "@material-ui/core";
 
 const SignUpPage = () => {
   const history = useHistory();
 
-  const [form, handleInputChange, clear] = useForm({
+  const [form, onChange, clear] = useForm({
     name: "",
     email: "",
     cpf: "",
@@ -42,7 +42,7 @@ const SignUpPage = () => {
             name={"name"}
             label={"Nome"}
             value={form.name}
-            onChange={handleInputChange}
+            onChange={onChange}
             placeholder="Nome e sobrenome"
             type={"text"}
             required
@@ -54,7 +54,7 @@ const SignUpPage = () => {
             name={"email"}
             label={"E-mail"}
             value={form.email}
-            onChange={handleInputChange}
+            onChange={onChange}
             placeholder="email@email.com"
             type={"email"}
             required
@@ -66,7 +66,7 @@ const SignUpPage = () => {
             name={"cpf"}
             label={"CPF"}
             value={form.cpf}
-            onChange={handleInputChange}
+            onChange={onChange}
             placeholder="Digite com pontos e traço Ex.: 000.000.000-00"
             required
             pattern={
@@ -80,7 +80,7 @@ const SignUpPage = () => {
             name={"password"}
             label={"Senha"}
             value={form.password}
-            onChange={handleInputChange}
+            onChange={onChange}
             placeholder="Mínimo 6 caracteres"
             type="password"
             required
@@ -94,7 +94,7 @@ const SignUpPage = () => {
             name={"confirmPassword"}
             label={"Confirmar"}
             value={form.confirmPassword}
-            onChange={handleInputChange}
+            onChange={onChange}
             placeholder="Confirme a senha anterior"
             type="password"
             required

@@ -6,13 +6,13 @@ import useForm from "../../hooks/useForm";
 import { useHistory } from "react-router";
 import { goToHomePage } from "../../routes/coordinator";
 import LogoRappi from "../../assets/logo.svg";
-import { Button, TextField } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 
 const LoginPage = () => {
   const history = useHistory();
 
   //Custom hook Form
-  const [form, handleInputChange, clear] = useForm({
+  const [form, onChange, clear] = useForm({
     email: "",
     password: "",
   });
@@ -41,7 +41,7 @@ const LoginPage = () => {
             name={"email"}
             label={"E-mail"}
             value={form.email}
-            onChange={handleInputChange}
+            onChange={onChange}
             placeholder="E-mail"
             type={"email"}
             required
@@ -53,7 +53,7 @@ const LoginPage = () => {
             name={"password"}
             label="Senha"
             value={form.password}
-            onChange={handleInputChange}
+            onChange={onChange}
             placeholder="Senha"
             type="password"
             required
@@ -64,7 +64,9 @@ const LoginPage = () => {
             margin="normal"
           />
 
-          <Button variant="contained">Entrar</Button>
+          <Button onClick={login} variant="contained">
+            Entrar
+          </Button>
           <div>
             <p>
               Não possui cadastro? <a href="/cadastro">Clique aqui.</a>
