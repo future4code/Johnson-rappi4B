@@ -5,12 +5,12 @@ import useForm from "../../hooks/useForm";
 import { AddAddressPageContainer, ContainerFomrAddress } from "./styled";
 import { useHistory } from "react-router";
 import { goToLoginPage } from "../../routes/coordinator";
-import { Button, TextField } from "@material-ui/core";
+import {  TextField, Button } from "@material-ui/core";
 
 const AddAddressPage = () => {
   const history = useHistory();
 
-  const [form, handleInputChange, clear] = useForm({
+  const [form, onChange, clear] = useForm({
     street: "",
     number: "",
     complement: "",
@@ -48,7 +48,7 @@ const AddAddressPage = () => {
               name={"street"}
               label={"Logradouro"}
               value={form.street}
-              onChange={handleInputChange}
+              onChange={onChange}
               placeholder="Rua / Av."
               type={"text"}
               required
@@ -61,7 +61,7 @@ const AddAddressPage = () => {
               name={"number"}
               label={"Número"}
               value={form.number}
-              onChange={handleInputChange}
+              onChange={onChange}
               placeholder="Número"
               type={"number"}
               required
@@ -74,7 +74,7 @@ const AddAddressPage = () => {
               name={"complement"}
               label={"Complemento"}
               value={form.complement}
-              onChange={handleInputChange}
+              onChange={onChange}
               placeholder="Apto. / Bloco"
               type={"text"}
               variant="outlined"
@@ -86,7 +86,7 @@ const AddAddressPage = () => {
               name={"neighbourhood"}
               label={"Bairro"}
               value={form.neighbourhood}
-              onChange={handleInputChange}
+              onChange={onChange}
               placeholder="Bairro"
               type={"text"}
               required
@@ -99,7 +99,7 @@ const AddAddressPage = () => {
               name={"city"}
               label={"Cidade"}
               value={form.city}
-              onChange={handleInputChange}
+              onChange={onChange}
               placeholder="Cidade"
               type={"text"}
               required
@@ -112,7 +112,7 @@ const AddAddressPage = () => {
               name={"state"}
               label={"Estado"}
               value={form.state}
-              onChange={handleInputChange}
+              onChange={onChange}
               placeholder="Ex.: SP"
               type={"text"}
               required
