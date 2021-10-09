@@ -1,11 +1,12 @@
 import React from "react";
-import { LoginPageContainer } from "./styled";
+import { LoginPageContainer, ContainerForm } from "./styled";
 import axios from "axios";
 import { BASE_URL } from "../../constants/urls";
 import useForm from "../../hooks/useForm";
 import { useHistory } from "react-router";
 import { goToHomePage } from "../../routes/coordinator";
 import LogoRappi from "../../assets/logo.svg";
+import { Button, TextField } from "@material-ui/core";
 
 const LoginPage = () => {
   const history = useHistory();
@@ -32,38 +33,46 @@ const LoginPage = () => {
   };
 
   return (
-    <LoginPageContainer>
-      <img src={LogoRappi} alt="Logo Rappi4" />
-      <form onSubmit={login}>
-        <input
-          name={"email"}
-          label={"E-mail"}
-          value={form.email}
-          onChange={handleInputChange}
-          placeholder="E-mail"
-          type={"email"}
-          required
-        />
-        <input
-          name={"password"}
-          label={"Senha"}
-          value={form.password}
-          onChange={handleInputChange}
-          placeholder="Senha"
-          type="password"
-          required
-          pattern={"^.{6,}"}
-          title={"A senha deve ter no mínimo 6 caracteres"}
-        />
+    <ContainerForm>
+      <LoginPageContainer>
+        <img src={LogoRappi} alt="Logo Rappi4" />
+        <form onSubmit={login}>
+          <TextField
+            name={"email"}
+            label={"E-mail"}
+            value={form.email}
+            onChange={handleInputChange}
+            placeholder="E-mail"
+            type={"email"}
+            required
+            variant="outlined"
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            name={"password"}
+            label="Senha"
+            value={form.password}
+            onChange={handleInputChange}
+            placeholder="Senha"
+            type="password"
+            required
+            pattern={"^.{6,}"}
+            title={"A senha deve ter no mínimo 6 caracteres"}
+            variant="outlined"
+            fullWidth
+            margin="normal"
+          />
 
-        <button>Entrar</button>
-        <div>
-          <p>
-            Não possui cadastro? <a href="/cadastro">Clique aqui.</a>
-          </p>
-        </div>
-      </form>
-    </LoginPageContainer>
+          <Button variant="contained">Entrar</Button>
+          <div>
+            <p>
+              Não possui cadastro? <a href="/cadastro">Clique aqui.</a>
+            </p>
+          </div>
+        </form>
+      </LoginPageContainer>
+    </ContainerForm>
   );
 };
 

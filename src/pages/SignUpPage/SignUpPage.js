@@ -5,6 +5,7 @@ import { SignUpPageContainer } from "./styled";
 import { goToAddAddressPage } from "../../routes/coordinator";
 import axios from "axios";
 import useForm from "../../hooks/useForm";
+import { Button, TextField } from "@material-ui/core";
 
 const SignUpPage = () => {
   const history = useHistory();
@@ -33,62 +34,80 @@ const SignUpPage = () => {
   };
 
   return (
-    <SignUpPageContainer>
-      <form onSubmit={signUp}>
-        <input
-          name={"name"}
-          label={"Nome"}
-          value={form.name}
-          onChange={handleInputChange}
-          placeholder="Nome e sobrenome"
-          type={"text"}
-          required
-        />
-        <input
-          name={"email"}
-          label={"E-mail"}
-          value={form.email}
-          onChange={handleInputChange}
-          placeholder="email@email.com"
-          type={"email"}
-          required
-        />
-        <input
-          name={"cpf"}
-          label={"CPF"}
-          value={form.cpf}
-          onChange={handleInputChange}
-          placeholder="Digite com pontos e traço Ex.: 000.000.000-00"          
-          required
-          pattern={
-            "([0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2})"
-          }
-        />
-        <input
-          name={"password"}
-          label={"Senha"}
-          value={form.password}
-          onChange={handleInputChange}
-          placeholder="Mínimo 6 caracteres"
-          type="password"
-          required
-          pattern={"^.{6,}"}
-          title={"A senha deve ter no mínimo 6 caracteres"}
-        />
-        <input
-          name={"confirmPassword"}
-          label={"Confirmar"}
-          value={form.confirmPassword}
-          onChange={handleInputChange}
-          placeholder="Confirme a senha anterior"
-          type="password"
-          required
-          pattern={"^.{6,}"}
-          title={"A senha deve ter no mínimo 6 caracteres"}
-        />
-        <button>Criar</button>
-      </form>
-    </SignUpPageContainer>
+    <>
+      <SignUpPageContainer>
+        <h3>Dados Pessoais</h3>
+        <form onSubmit={signUp}>
+          <TextField
+            name={"name"}
+            label={"Nome"}
+            value={form.name}
+            onChange={handleInputChange}
+            placeholder="Nome e sobrenome"
+            type={"text"}
+            required
+            variant="outlined"
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            name={"email"}
+            label={"E-mail"}
+            value={form.email}
+            onChange={handleInputChange}
+            placeholder="email@email.com"
+            type={"email"}
+            required
+            variant="outlined"
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            name={"cpf"}
+            label={"CPF"}
+            value={form.cpf}
+            onChange={handleInputChange}
+            placeholder="Digite com pontos e traço Ex.: 000.000.000-00"
+            required
+            pattern={
+              "([0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2})"
+            }
+            variant="outlined"
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            name={"password"}
+            label={"Senha"}
+            value={form.password}
+            onChange={handleInputChange}
+            placeholder="Mínimo 6 caracteres"
+            type="password"
+            required
+            pattern={"^.{6,}"}
+            title={"A senha deve ter no mínimo 6 caracteres"}
+            variant="outlined"
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            name={"confirmPassword"}
+            label={"Confirmar"}
+            value={form.confirmPassword}
+            onChange={handleInputChange}
+            placeholder="Confirme a senha anterior"
+            type="password"
+            required
+            pattern={"^.{6,}"}
+            title={"A senha deve ter no mínimo 6 caracteres"}
+            variant="outlined"
+            fullWidth
+            margin="normal"
+          />
+          <Button variant="contained">Criar</Button>
+        </form>
+      </SignUpPageContainer>
+    </>
   );
 };
 
