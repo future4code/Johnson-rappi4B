@@ -5,7 +5,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import {
   goToHomePage,
-  goToAddAdressPage,
+  goToAddAddressPage,
   goToLoginPage,
 } from "./../../routes/coordinator";
 
@@ -13,10 +13,6 @@ const HomePage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    getRestaurants();
-  }, []);
-
-  const getRestaurants = () => {
     axios
       .get(`${BASE_URL}/restaurants`, {
         headers: {
@@ -24,7 +20,7 @@ const HomePage = () => {
         },
       })
       .then((res) => {
-        alert(res.data);
+        // Estado dos restaurantes
       })
       .catch((err) => {
         alert(err.response.data.message);
@@ -33,10 +29,10 @@ const HomePage = () => {
         } else if (
           err.response.data.message === "Usuário não possui endereço cadastrado"
         ) {
-          goToAddAdressPage(history);
+          goToAddAddressPage(history);
         }
       });
-  };
+  }, [history]);
 
   return <HomePageContainer>HOME PAGE</HomePageContainer>;
 };
