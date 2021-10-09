@@ -5,7 +5,7 @@ import { SignUpPageContainer } from "./styled";
 import { goToAddAddressPage } from "../../routes/coordinator";
 import axios from "axios";
 import useForm from "../../hooks/useForm";
-import {  TextField, Button } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 
 const SignUpPage = () => {
   const history = useHistory();
@@ -67,7 +67,8 @@ const SignUpPage = () => {
             label={"CPF"}
             value={form.cpf}
             onChange={onChange}
-            placeholder="Digite com pontos e traço Ex.: 000.000.000-00"
+            placeholder="Ex.: 123.456.789-01"
+            Title={"Digite um formato válido para CPF"}
             required
             pattern={
               "([0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}[/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2})"
