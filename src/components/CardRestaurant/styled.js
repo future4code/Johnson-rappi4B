@@ -4,7 +4,6 @@ export const CardRestaurantContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 328px;
-    height: 188px;
     padding: 0 0 16px;
     border-radius: 8px;
     border: solid 1px #b8b8b8;
@@ -17,7 +16,6 @@ export const LogoRestaurant = styled.div`
     display: flex;
     justify-content: center;
     width: 328px;
-    height: 120px;
 
     img {
         width: 100%;
