@@ -1,4 +1,6 @@
 import React from "react";
+import { goToRestaurantDetailsPage } from "../../routes/coordinator";
+import { useHistory } from "react-router-dom";
 import {
   CardRestaurantContainer,
   LogoRestaurant,
@@ -7,8 +9,10 @@ import {
 } from "./styled";
 
 const CardRestaurant = (props) => {
+  const history = useHistory();
+
   return (
-    <CardRestaurantContainer>
+    <CardRestaurantContainer onClick={() => goToRestaurantDetailsPage(history, props.loja.id)}>
       <LogoRestaurant>
         <img src={props.loja.logoUrl} alt="Logo do Restaurante" />
       </LogoRestaurant>

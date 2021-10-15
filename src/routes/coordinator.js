@@ -22,8 +22,8 @@ export const goToEditPage = (history) => {
     history.push("/editar")
 }
 
-export const goToSearchPage = (history) => {
-    history.push("/buscar")
+export const goToRestaurantDetailsPage = (history,id) => {
+    history.push(`/restaurante/${id}`)
 }
 
 export const goToResultsPage = (history) => {

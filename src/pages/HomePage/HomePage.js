@@ -7,12 +7,13 @@ import { goToAddAddressPage, goToLoginPage } from "./../../routes/coordinator";
 import CardRestaurant from "../../components/CardRestaurant/CardRestaurant";
 import { Search } from "../../components/Search/Search";
 import LogoRappi from "../../assets/logo.svg";
-import { SnackBar } from "./../../components/SnakBar/SnackBar";
+import { SnakBar } from "../../components/SnakBar/SnakBar";
 import { FooterCard } from "../../components/FooterCard/FooterCard";
 
 const HomePage = () => {
   const history = useHistory();
   const [data, setdata] = useState();
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
     axios
@@ -36,25 +37,43 @@ const HomePage = () => {
       });
   }, [history]);
 
-  const foods =
+  const selectCategory = (category) => {
+    setCategory(category);
+  };
+
+  const clearFilter = () => {
+    if (window.confirm("Deseja limpar filtros")) {
+      setCategory("");
+    }
+  };
+
+  const filterRestaurants =
     data &&
-    data.map((loja) => {
+    data.filter((item) => {
+      return category === item.category;
+    });
+
+  const listRestaurant =
+    filterRestaurants &&
+    filterRestaurants.map((loja) => {
       return <CardRestaurant key={loja.id} loja={loja} />;
     });
 
   return (
     <HomePageContainer>
       <img src={LogoRappi} alt="Logo Rappi4" />
-      <hr />
       <Search />
-      <SnackBar data={data} />
-      {foods && foods.length > 0 ? (
-        foods
-      ) : (
-        <>
-          <p>Carregando...</p>
-        </>
-      )}
+      <SnakBar
+        data={data}
+        selectCategory={selectCategory}
+        clearFilter={clearFilter}
+      />
+      {category === ""
+        ? data &&
+          data.map((item) => {
+            return <CardRestaurant key={item.id} loja={item} />;
+          })
+        : listRestaurant}
       <FooterCard />
     </HomePageContainer>
   );
