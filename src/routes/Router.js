@@ -8,7 +8,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import ResultsPage from "../pages/ResultsPage/ResultsPage";
-import SearchPage from "../pages/SearchPage/SearchPage";
+import RestaurantDetailsPage from "../pages/RestaurantDetailsPage/RestaurantDetailsPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import SplashScreenPage from "../pages/SplashScreenPage/SplashScreenPage";
 
@@ -23,7 +23,11 @@ export default function Router() {
         <Route exact path={"/perfil"} component={ProfilePage} />
         <Route exact path={"/endereco"} component={AddAddressPage} />
         <Route exact path={"/editar"} component={EditPage} />
-        <Route exact path={"/buscar"} component={SearchPage} />
+        <Route
+          exact
+          path={"/restaurante/:id"}
+          component={RestaurantDetailsPage}
+        />
         <Route exact path={"/resultados"} component={ResultsPage} />
         <Route exact path={"/carrinho"} component={CartPage} />
         <Route component={ErrorPage} />
