@@ -10,6 +10,7 @@ export const CardRestaurantContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin: 4px;
+    cursor:pointer;
 `
 
 export const LogoRestaurant = styled.div`
@@ -20,7 +21,7 @@ export const LogoRestaurant = styled.div`
     img {
         width: 100%;
         border-radius: 8px 8px 0 0;
-        height: 36vh;
+        height: 28vh;
     }
 `
 

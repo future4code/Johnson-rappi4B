@@ -3,25 +3,37 @@ import styled from "styled-components";
 import LogoRappi from "../../assets/logo-white.svg";
 
 const SplashScreenContainer = styled.div`
-    display: flex;
-    background-color: #e86e5a;
-    height: 640px;
-    width: 360px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  background-color: #e86e5a;
+  min-height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 
-    img {
-        width: 126px;
-        height: 65px;
-        object-fit: contain;
-    }
+  img {
+    text-align: center;
+    width: 126px;
+    height: 65px;
+    object-fit: contain;
+  }
+`;
+
+const centerSplash = styled.div`
+  width: 100%;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
 `;
 
 const SplashScreen = () => {
   return (
-    <SplashScreenContainer>
-      <img src={LogoRappi} alt="Logo Rappi4" />
-    </SplashScreenContainer>
+    <centerSplash>
+      <SplashScreenContainer>
+        <img src={LogoRappi} alt="Logo Rappi4" />
+      </SplashScreenContainer>
+    </centerSplash>
   );
 };
 

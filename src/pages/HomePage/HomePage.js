@@ -37,9 +37,17 @@ const HomePage = () => {
       });
   }, [history]);
 
-  const selectCategory = (category) => {
-    setCategory(category);
+  const selectCategory = (item) => {
+    if (category === "") {
+      setCategory(item);
+    } else if(category === item){
+      setCategory("")
+    } else {
+      setCategory(item)
+    }
   };
+
+  
 
   const clearFilter = () => {
     if (window.confirm("Deseja limpar filtros")) {
