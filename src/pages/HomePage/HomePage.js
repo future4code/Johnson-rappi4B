@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HomePageContainer } from "./styled";
+import { HomePageContainer, ListRestaurantContainer } from "./styled";
 import { BASE_URL } from "./../../constants/urls";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -40,14 +40,12 @@ const HomePage = () => {
   const selectCategory = (item) => {
     if (category === "") {
       setCategory(item);
-    } else if(category === item){
-      setCategory("")
+    } else if (category === item) {
+      setCategory("");
     } else {
-      setCategory(item)
+      setCategory(item);
     }
   };
-
-  
 
   const clearFilter = () => {
     if (window.confirm("Deseja limpar filtros")) {
@@ -75,13 +73,17 @@ const HomePage = () => {
         data={data}
         selectCategory={selectCategory}
         clearFilter={clearFilter}
+        category={category}
       />
-      {category === ""
-        ? data &&
-          data.map((item) => {
-            return <CardRestaurant key={item.id} loja={item} />;
-          })
-        : listRestaurant}
+      <ListRestaurantContainer>
+        {category === ""
+          ? data &&
+            data.map((item) => {
+              return <CardRestaurant key={item.id} loja={item} />;
+            })
+          : listRestaurant}
+          
+      </ListRestaurantContainer>
       <FooterCard />
     </HomePageContainer>
   );

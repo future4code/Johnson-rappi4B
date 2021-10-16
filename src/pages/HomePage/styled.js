@@ -6,4 +6,14 @@ export const HomePageContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100vw;
+  
+`
+
+export const ListRestaurantContainer =styled.div`
+width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     height: 80vh; 
+     overflow-y:scroll;
 `
