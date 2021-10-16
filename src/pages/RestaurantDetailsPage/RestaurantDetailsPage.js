@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { RestaurantDetailsPageContainer } from "./styled";
+import { RestaurantDetailsPageContainer, CardPrincipal } from "./styled";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "./../../constants/urls";
@@ -31,14 +31,24 @@ const RestaurantDetailsPage = () => {
   };
 
   return (
+    <>
     <RestaurantDetailsPageContainer>
-      {data && data.name} <br />
-      {data && data.logoUrl} <br />
-      {data && data.address} <br />
-      {data && data.category} <br />
-      {data && data.description} <br />
-      {data && data.shipping} <br />
-      {data && data.deliveryTime} <br />
+      <h4>Restaurantes</h4 >
+      
+      
+      <CardPrincipal>
+        <img src={data && data.logoUrl} alt="foto da loja" />
+        <p>{data && data.name} </p>
+        <p>{data && data.category}</p>
+        <div>
+          {data && data.deliveryTime}-Min
+          R${data && data.shipping.toFixed(2).replace(".", ",")}
+        </div>
+        <p>{data && data.address}</p>
+        {/* {data && data.description}  */}
+      </CardPrincipal >
+      <hr />
+      
       {data &&
         data.products.map((i) => {
           return (
@@ -46,11 +56,12 @@ const RestaurantDetailsPage = () => {
               {i.name} <br />
               {i.description} <br />
               {i.price} <br />
-              {i.photoUrl} <br />
+              <img src={i.photoUrl} alt="foto do produto" />
             </div>
           );
         })}
     </RestaurantDetailsPageContainer>
+    </>
   );
 };
 

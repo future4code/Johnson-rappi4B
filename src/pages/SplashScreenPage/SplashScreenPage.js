@@ -9,7 +9,7 @@ const SplashScreenPage = () => {
 
   ReactDOM.render(
     <React.StrictMode>
-      <SplashScreen />
+      <SplashScreen  />
     </React.StrictMode>,
     document.getElementById("root")
   );

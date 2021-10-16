@@ -7,7 +7,7 @@ export const Search = () => {
   return (
     <ContainerInput>
       <FaSearch size="20px" />
-      <input type="text" placeholder="Localize seu Restaurante" value="" />
+      <input type="text" placeholder="Localize seu Restaurante" value="nome do restaurante" />
     </ContainerInput>
   );
 };
