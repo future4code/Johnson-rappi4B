@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HomePageContainer, ListRestaurantContainer } from "./styled";
+import { HomePageContainer, DiVCContainer } from "./styled";
 import { BASE_URL } from "./../../constants/urls";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -66,26 +66,26 @@ const HomePage = () => {
     });
 
   return (
-    <HomePageContainer>
-      <img src={LogoRappi} alt="Logo Rappi4" />
-      <Search />
-      <SnakBar
-        data={data}
-        selectCategory={selectCategory}
-        clearFilter={clearFilter}
-        category={category}
-      />
-      <ListRestaurantContainer>
+    <DiVCContainer>
+      <HomePageContainer>
+        <img src={LogoRappi} alt="Logo Rappi4" />
+        <Search />
+        <SnakBar
+          data={data}
+          selectCategory={selectCategory}
+          clearFilter={clearFilter}
+          category={category}
+        />
+
         {category === ""
           ? data &&
             data.map((item) => {
               return <CardRestaurant key={item.id} loja={item} />;
             })
           : listRestaurant}
-          
-      </ListRestaurantContainer>
+      </HomePageContainer>
       <FooterCard />
-    </HomePageContainer>
+    </DiVCContainer>
   );
 };
 

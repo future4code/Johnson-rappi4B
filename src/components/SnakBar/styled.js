@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContainerSnakBar = styled.div`
   display: flex;
   align-items: center;
-  width: 328px;
+  max-width: 315px;
   height: 72px;
   overflow-x: scroll;
 `;
@@ -15,7 +15,7 @@ export const SnackBarButtom = styled.p`
   background: #e86e5a;
   color: ${(p) => (p.selected ? "white" : "black")};
 
-  &:hover {    
+  &:hover {
     cursor: pointer;
   }
 
