@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
-export const HomePageContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-  
+
+export const DiVCContainer = styled.div`
+display: flex;
+flex-direction: column;
+  width: 100vw;
+  height: 100vh;
 `
 
-export const ListRestaurantContainer =styled.div`
-width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-     height: 80vh; 
-     overflow-y:scroll;
-`
+export const HomePageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  scroll-behavior: smooth;
+`;
