@@ -2,18 +2,23 @@ import styled from "styled-components";
 
 export const ContainerFooterButtons = styled.div`
   display: flex;
-  max-width: 325px;
+  height: 70px;
+  width: 325px;
   align-items: center;
-  justify-content: center;
-  border: none;
-  position: fixed;
-  bottom: 0.1vh;
- 
+  justify-content: space-evenly; 
+  position: sticky;
+  bottom: 0.1vh;  
+  background-color: #fff;
+  bottom: 0%;;
+  
 
   button {
-    max-width: 20px;
-    max-height: 50px;
+    width: 20px;
+    height: 50px;
     border-radius: 80%;
-    background-color: transparent;
+    background-color: #fff;
+    color: #e86e5a;
+    
+    
   }
 `;
