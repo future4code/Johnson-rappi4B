@@ -1,19 +1,19 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import { ContainerFooterButtons } from "./style";
-import { FaUser, FaHome, FaShoppingCart } from "react-icons/fa";
+import { RiHome5Line, RiShoppingCart2Line, RiContactsLine } from "react-icons/ri";
 
 export const FooterCard = () => {
   return (
     <ContainerFooterButtons>
       <Button variant="contained">
-        <FaHome size="24px" />
+        <RiHome5Line size="22px" />
       </Button>
       <Button variant="contained">
-        <FaShoppingCart size="24px" />
+        <RiShoppingCart2Line size="22px" />
       </Button>
       <Button variant="contained">
-        <FaUser size="24px" />
+        <RiContactsLine size="22px" />
       </Button>
     </ContainerFooterButtons>
   );

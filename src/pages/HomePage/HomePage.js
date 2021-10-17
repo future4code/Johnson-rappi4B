@@ -66,26 +66,24 @@ const HomePage = () => {
     });
 
   return (
-    <DiVCContainer>
-      <HomePageContainer>
-        <img src={LogoRappi} alt="Logo Rappi4" />
-        <Search />
-        <SnakBar
-          data={data}
-          selectCategory={selectCategory}
-          clearFilter={clearFilter}
-          category={category}
-        />
+    <HomePageContainer>
+      <img src={LogoRappi} alt="Logo Rappi4" />
+      <Search />
+      <SnakBar
+        data={data}
+        selectCategory={selectCategory}
+        clearFilter={clearFilter}
+        category={category}
+      />
 
-        {category === ""
-          ? data &&
-            data.map((item) => {
-              return <CardRestaurant key={item.id} loja={item} />;
-            })
-          : listRestaurant}
-      </HomePageContainer>
+      {category === ""
+        ? data &&
+          data.map((item) => {
+            return <CardRestaurant key={item.id} loja={item} />;
+          })
+        : listRestaurant}
       <FooterCard />
-    </DiVCContainer>
+    </HomePageContainer>
   );
 };
 
