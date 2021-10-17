@@ -4,7 +4,7 @@ export const ContainerSnakBar = styled.div`
   display: flex;
   align-items: center;
   max-width: 315px;
-  height: 72px;
+  height: 84px;
   overflow-x: scroll;
 `;
 
@@ -24,3 +24,5 @@ export const SnackBarButtom = styled.p`
     transform: scaleX(0.7);
   }
 `;
+
+

@@ -18,6 +18,9 @@ export const LoginPageContainer = styled.div`
     width: 300px;
     text-align: center;
   }
+  input{
+    width:320px;
+  }
 
   form {
     display: flex;

@@ -26,7 +26,7 @@ const AddAddressPage = () => {
         headers: { auth: localStorage.getItem("token") },
       })
       .then((res) => {
-        console.log(res.data);
+       
         clear();
         localStorage.setItem("token", res.data.token);
         alert("Ufa...agora bora de lanches!");

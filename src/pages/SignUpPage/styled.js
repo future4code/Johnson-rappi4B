@@ -16,7 +16,7 @@ export const SignUpPageContainer = styled.div`
   height: 640px;
 
   input {
-    width: 328px;
+    width:320px;
     height: 46px;
     margin: 8px 0 0;
     padding: 19px 48px 19px 16px;

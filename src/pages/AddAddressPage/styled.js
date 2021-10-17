@@ -14,6 +14,10 @@ export const AddAddressPageContainer = styled.div`
   height: 340px;
   padding: 0 0 184px;
 
+  input{
+    width:320px;
+  }
+
   h3 {
     font-size: large;
     text-align: center;
