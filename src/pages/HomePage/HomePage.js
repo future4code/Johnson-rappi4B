@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HomePageContainer, DiVCContainer } from "./styled";
+import { HomePageContainer } from "./styled";
 import { BASE_URL } from "./../../constants/urls";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -9,13 +9,16 @@ import { Search } from "../../components/Search/Search";
 import LogoRappi from "../../assets/logo.svg";
 import { SnakBar } from "../../components/SnakBar/SnakBar";
 import { FooterCard } from "../../components/FooterCard/FooterCard";
+import CircularIndeterminate from "../../components/Loading/Loading";
 
 const HomePage = () => {
   const history = useHistory();
   const [data, setdata] = useState();
   const [category, setCategory] = useState("");
+  const [isLoading, setisLoading] = useState(false);
 
   useEffect(() => {
+    setisLoading(true);
     axios
       .get(`${BASE_URL}/restaurants`, {
         headers: {
@@ -24,9 +27,9 @@ const HomePage = () => {
       })
       .then((res) => {
         setdata(res.data.restaurants);
+        setisLoading(false);
       })
       .catch((err) => {
-        alert(err.response.data.message);
         if (err.response.data.message === "Não autorizado") {
           goToLoginPage(history);
         } else if (
@@ -47,10 +50,8 @@ const HomePage = () => {
     }
   };
 
-  const clearFilter = () => {
-    if (window.confirm("Deseja limpar filtros")) {
-      setCategory("");
-    }
+  const removeSnack = () => {
+    setCategory("");
   };
 
   const filterRestaurants =
@@ -72,16 +73,17 @@ const HomePage = () => {
       <SnakBar
         data={data}
         selectCategory={selectCategory}
-        clearFilter={clearFilter}
         category={category}
+        removeSnack={removeSnack}
       />
-
+      {isLoading ? <CircularIndeterminate /> : ""}
       {category === ""
         ? data &&
           data.map((item) => {
             return <CardRestaurant key={item.id} loja={item} />;
           })
         : listRestaurant}
+
       <FooterCard />
     </HomePageContainer>
   );

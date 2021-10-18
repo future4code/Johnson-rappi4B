@@ -16,7 +16,10 @@ export const LoginPageContainer = styled.div`
 
   img {
     width: 300px;
-    text-align: center;
+    align-self: center;
+  }
+  input{
+    width:320px;
   }
 
   form {

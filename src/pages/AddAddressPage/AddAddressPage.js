@@ -26,7 +26,7 @@ const AddAddressPage = () => {
         headers: { auth: localStorage.getItem("token") },
       })
       .then((res) => {
-        console.log(res.data);
+       
         clear();
         localStorage.setItem("token", res.data.token);
         alert("Ufa...agora bora de lanches!");
@@ -123,7 +123,7 @@ const AddAddressPage = () => {
               margin="normal"
             />
 
-            <Button type="submit" variant="contained">Salvar</Button>
+            <Button type="submit" variant="contained">Criar</Button>
           </form>
         </AddAddressPageContainer>
       </ContainerFomrAddress>

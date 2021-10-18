@@ -11,11 +11,11 @@ export const useRequestData = (url) => {
         axios
           .get(url)
           .then((res) => {
-            console.log(res.data.data.results);
+           
             setdata(res.data.data.results);
           })
           .catch((error) => {
-            console.log(error.message);
+            alert(error.message);
           });
       
   }, []);

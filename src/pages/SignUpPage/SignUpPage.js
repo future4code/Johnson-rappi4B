@@ -6,12 +6,9 @@ import { goToAddAddressPage } from "../../routes/coordinator";
 import axios from "axios";
 import useForm from "../../hooks/useForm";
 import { TextField, Button } from "@material-ui/core";
-import  InputMask from 'react-input-mask'
 
 const SignUpPage = () => {
   const history = useHistory();
-
-
 
   const [form, onChange, clear] = useForm({
     name: "",
@@ -20,8 +17,6 @@ const SignUpPage = () => {
     password: "",
     confirmPassword: "",
   });
-
-
 
   const signUp = (event) => {
     event.preventDefault();
@@ -67,14 +62,14 @@ const SignUpPage = () => {
             fullWidth
             margin="normal"
           />
-          <InputMask mask="999.999.999-99"
+          <TextField
             name={"cpf"}
             label={"CPF"}
             value={form.cpf}
             onChange={onChange}
             placeholder="Número do CPF"
-            Title={"Digite um formato válido para CPF"}
-            required          
+            Title={"Digite apenas números"}
+            required
             variant="outlined"
             fullWidth
             margin="normal"
@@ -107,7 +102,9 @@ const SignUpPage = () => {
             fullWidth
             margin="normal"
           />
-          <Button type="submit" variant="contained">Criar</Button>
+          <Button type="submit" variant="contained">
+            Criar
+          </Button>
         </form>
       </SignUpPageContainer>
     </>

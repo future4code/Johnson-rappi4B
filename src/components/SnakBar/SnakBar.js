@@ -1,13 +1,16 @@
 import React from "react";
 import { ContainerSnakBar, SnackBarButtom } from "./styled";
+import { RiFilterOffLine } from "react-icons/ri";
 
 export const SnakBar = (props) => {
   const categories = props.data;
-  console.log(props);
+
   return (
     <>
       <ContainerSnakBar>
-        <buttom>Todos</buttom>
+        <p>
+          <RiFilterOffLine  color={"#e86e5a"} size="24px" style={{ cursor: "pointer" }} onClick={props.removeSnack} />
+        </p>
         {categories &&
           categories.map((item) => {
             return (

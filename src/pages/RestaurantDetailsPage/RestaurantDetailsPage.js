@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "./../../constants/urls";
 import { useParams } from "react-router";
+import { FooterCard } from "../../components/FooterCard/FooterCard";
 
 const RestaurantDetailsPage = () => {
   const [data, setdata] = useState();
@@ -22,7 +23,7 @@ const RestaurantDetailsPage = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.restaurant);
+       
         setdata(res.data.restaurant);
       })
       .catch((e) => {
@@ -61,6 +62,7 @@ const RestaurantDetailsPage = () => {
           );
         })}
     </RestaurantDetailsPageContainer>
+    <FooterCard/>
     </>
   );
 };

@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const ContainerInput = styled.div`
   display: flex;
-  max-width: 320px;
+  max-width: 290px;
+  top:20px;
   height: 28px;
   align-items: center;
   border: 1px solid black;
@@ -11,7 +12,7 @@ export const ContainerInput = styled.div`
   opacity: 0.3;
 
   input {
-    width:100%auto;
+    width:300px;
     outline: none;
     border: none;
     left: 20px;
