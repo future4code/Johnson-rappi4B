@@ -20,7 +20,7 @@ export const SnackBarButtom = styled.p`
   }
 
   &:active {
-    background-color: #e86e20;
+    background-color: red;
     transform: scaleX(0.7);
   }
 `;

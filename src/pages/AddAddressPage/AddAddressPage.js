@@ -123,7 +123,7 @@ const AddAddressPage = () => {
               margin="normal"
             />
 
-            <Button type="submit" variant="contained">Salvar</Button>
+            <Button type="submit" variant="contained">Criar</Button>
           </form>
         </AddAddressPageContainer>
       </ContainerFomrAddress>

@@ -9,7 +9,7 @@ export const SnakBar = (props) => {
     <>
       <ContainerSnakBar>
         <p>
-          <RiFilterOffLine color={"red"} size="24px" style={{ cursor: "pointer" }} onClick={props.removeSnack} />
+          <RiFilterOffLine  color={"#e86e5a"} size="24px" style={{ cursor: "pointer" }} onClick={props.removeSnack} />
         </p>
         {categories &&
           categories.map((item) => {
