@@ -3,34 +3,31 @@ import { BASE_URL } from "../../constants/urls";
 import axios from "axios";
 import { goToLoginPage, goToHomePage } from "./../../routes/coordinator";
 import { useHistory } from "react-router";
-import useForm from "../../hooks/useForm";
 import Button from "@mui/material/Button";
 import { BiLogOut } from "react-icons/bi";
 import { FaBackspace, FaRegEdit } from "react-icons/fa";
 import Loading from "../../components/Loading/Loading";
+
 import {
   ButtonsHeader,
   ContainerPersonalData,
   PhotoPerfil,
   ProfilePageContainer,
 } from "./styled";
+import { CardEditeData } from "../../components/CardEditeData/CardEditeData";
 
 const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [pageInitial, setPageInitial] = useState(false);
   const [dataProfile, setDataProfile] = useState({});
   const [token, setToken] = useState(localStorage.getItem("token"));
-
-  const [form, onChange, clear] = useForm({
-    name: "",
-    email: "",
-    cpf: "",
-    address: "",
-  });
-
   const history = useHistory();
 
-  const getProfile = () => {
+  useEffect(() => {
+    editDataProfile();
+  }, []);
+
+  const editDataProfile = () => {
     setIsLoading(true);
     axios
       .get(`${BASE_URL}/profile`, { headers: { auth: token } })
@@ -42,10 +39,6 @@ const ProfilePage = () => {
         alert(err.response.data.message);
       });
   };
-
-  useEffect(() => {
-    getProfile();
-  }, [token]);
 
   const logout = () => {
     setToken(localStorage.removeItem("token"));
@@ -59,12 +52,12 @@ const ProfilePage = () => {
   return (
     <ProfilePageContainer>
       {pageInitial ? (
-        <div>
-          <input value={dataProfile.name} />
-          <input value={dataProfile.email} />
-          <input value={dataProfile.cpf} />
-          <input value={dataProfile.address} />
-        </div>
+        <>
+          <CardEditeData
+            dataProfile={dataProfile}
+            editDataProfile={editDataProfile}
+          />
+        </>
       ) : (
         <>
           <ButtonsHeader>
@@ -91,7 +84,6 @@ const ProfilePage = () => {
               </PhotoPerfil>
               <ContainerPersonalData>
                 <h3>Perfil do Usuário</h3>
-                <hr />
                 <p>
                   <b>Nome:</b> {dataProfile.name}
                 </p>
