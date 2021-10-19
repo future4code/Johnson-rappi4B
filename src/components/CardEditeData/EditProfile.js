@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
 import { ContainerForm } from "./styled";
+import axios from "axios";
+import { BASE_URL } from "../../constants/urls";
 
-export const CardEditeData = (props) => {
-  const { name, cpf, email, address } = props.dataProfile;
+export const EditProfile = (props) => {
+  const { name, cpf, email } = props.dataProfile;
 
   const [Name, SetName] = useState(name);
   const [Cpf, SetCpf] = useState(cpf);
   const [Email, SetEmail] = useState(email);
-  const [Address, SetAddress] = useState(address);
 
   const onChangeName = (event) => {
     SetName(event.target.value);
@@ -19,13 +20,19 @@ export const CardEditeData = (props) => {
   const onChangeEmail = (event) => {
     SetEmail(event.target.value);
   };
-  const onChangeAddress = (event) => {
-    SetAddress(event.target.value);
+
+  const editionProfile = (event) => {
+ event.preventDefault()
+    const body = {
+      name: Name,
+      email: Email,
+      cpf: Cpf,
+    };
+    axios.put(`${BASE_URL}/profile`, body, {
+      headers: { auth: localStorage.getItem("token") },
+    }).then(()=> {alert("Dados Atualizados com sucesso!")
+  props.setPageInitial(false)})
   };
-
-
-
-  
 
   return (
     <>
@@ -66,25 +73,15 @@ export const CardEditeData = (props) => {
             fullWidth
             margin="normal"
           />
-          <TextField
-            name={"endereco"}
-            label={"Endereço"}
-            value={Address}
-            onChange={onChangeAddress}
-            type={"text"}
-            required
-            variant="outlined"
-            fullWidth
-            margin="normal"
-          />
-        </form>
           <Button
+            style={{ marginTop: "24px" }}
             type="submit"
             variant="contained"
-            onClick={() => props.editDataProfile()}
+            onClick={editionProfile}
           >
             Salvar
           </Button>
+        </form>
       </ContainerForm>
     </>
   );

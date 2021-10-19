@@ -14,7 +14,8 @@ import {
   PhotoPerfil,
   ProfilePageContainer,
 } from "./styled";
-import { CardEditeData } from "../../components/CardEditeData/CardEditeData";
+
+import { EditProfile } from "./../../components/CardEditeData/EditProfile";
 
 const ProfilePage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,10 +25,6 @@ const ProfilePage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    editDataProfile();
-  }, []);
-
-  const editDataProfile = () => {
     setIsLoading(true);
     axios
       .get(`${BASE_URL}/profile`, { headers: { auth: token } })
@@ -38,6 +35,10 @@ const ProfilePage = () => {
       .catch((err) => {
         alert(err.response.data.message);
       });
+  }, [token, pageInitial]);
+
+  const editDataProfile = () => {
+   
   };
 
   const logout = () => {
@@ -53,10 +54,7 @@ const ProfilePage = () => {
     <ProfilePageContainer>
       {pageInitial ? (
         <>
-          <CardEditeData
-            dataProfile={dataProfile}
-            editDataProfile={editDataProfile}
-          />
+          <EditProfile dataProfile={dataProfile} setPageInitial={setPageInitial} pageInitial={pageInitial} />
         </>
       ) : (
         <>
