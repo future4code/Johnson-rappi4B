@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AddAddressPage from "../pages/AddAddressPage/AddAddressPage";
 import CartPage from "../pages/CartPage/CartPage";
-import EditPage from "../pages/EditPage/EditPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
@@ -21,8 +20,7 @@ export default function Router() {
         <Route exact path={"/cadastro"} component={SignUpPage} />
         <Route exact path={"/login"} component={LoginPage} />
         <Route exact path={"/perfil"} component={ProfilePage} />
-        <Route exact path={"/endereco"} component={AddAddressPage} />
-        <Route exact path={"/editar"} component={EditPage} />
+        <Route exact path={"/endereco"} component={AddAddressPage} />        
         <Route
           exact
           path={"/restaurante/:id"}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { RestaurantDetailsPageContainer, RestaurantContainer, CardRestaurant } from "./styled";
+import { RestaurantDetailsPageContainer, RestaurantContainer, CardRestaurant, RestaurantImage, ProductCard, ProductImage, ProductInfo } from "./styled";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "./../../constants/urls";
@@ -39,8 +39,8 @@ const RestaurantDetailsPage = () => {
       </RestaurantContainer>     
       
       <CardRestaurant>
-        <img src={data && data.logoUrl} alt="foto da loja" />
-        <p>{data && data.name} </p>
+        <RestaurantImage src={data && data.logoUrl} alt="foto da loja"/>
+        <p>{data && data.name}</p>
         <p>{data && data.category}</p>
         <div>
           {data && data.deliveryTime}-Min
@@ -49,19 +49,21 @@ const RestaurantDetailsPage = () => {
         <p>{data && data.address}</p>
         {/* {data && data.description}  */}
       </CardRestaurant >
-      <hr />
-      
       {data &&
-        data.products.map((i) => {
-          return (
-            <div key={i.id}>
-              <img src={i.photoUrl} alt="foto do produto" />
-              {i.name} <br />
-              {i.description} <br />
-              {i.price} <br />
-            </div>
-          );
-        })}
+      data.products.map((i) => {
+        return (
+          <div key={i.id}>
+            <ProductCard>
+              <ProductImage src={i.photoUrl} alt="foto do produto"/>
+              <ProductInfo>
+                <span>{i.name}</span>
+                <span>{i.description}</span>
+                <span>{i.price}</span>
+              </ProductInfo>
+            </ProductCard>
+          </div>
+        );
+      })}
     </RestaurantDetailsPageContainer>
     <FooterCard/>
     </>

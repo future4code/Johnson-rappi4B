@@ -18,9 +18,6 @@ export const goToAddAddressPage = (history) => {
     history.push("/endereco")
 }
 
-export const goToEditPage = (history) => {
-    history.push("/editar")
-}
 
 export const goToRestaurantDetailsPage = (history,id) => {
     history.push(`/restaurante/${id}`)
