@@ -6,11 +6,6 @@ export const RestaurantDetailsPageContainer = styled.div`
     width: 360px;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
-    /* display: flex;    
-    padding: 0 0 16px;    
-    border: solid 1px #b8b8b8;
-    margin: 0 auto; */
 `
 
 export const RestaurantContainer = styled.div`
@@ -18,7 +13,7 @@ export const RestaurantContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #b8b8b8;
 `
 
 export const CardRestaurant = styled.div`
@@ -27,9 +22,26 @@ export const CardRestaurant = styled.div`
     margin-top: 16px;
     align-items: flex-start;
     width: 90%;
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: flex-start; */
+    color: #b8b8b8;
+    border-bottom: 1px solid black;
+
+    span {
+        margin-top: 12px;
+    }
+    
+    div {
+        display: flex;
+        width: 60%;
+        justify-content: space-between;
+    }
+
+    .restaurant_name {
+        color: #DE7E5D;
+    }
+
+    .restaurant_address {
+        margin-bottom: 12px;
+    }
 `
 
 export const RestaurantImage = styled.img`
@@ -38,24 +50,39 @@ export const RestaurantImage = styled.img`
     border-radius: 8px 8px 0 0;       
 `
 
+export const ListProducts = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 96%;
+    padding: 4px;
+    margin-top: 8px;
+`
+
 export const ProductCard = styled.div`
     display: flex;
-    width: 90%;
-    border: 1px solid black;
+    width: 328px;
+    height: 112px;
+    border: 1px solid #b8b8b8;
     border-radius: 8px;
-    /* justify-content: flex-start; */
     align-items: center;
 `
 
 export const ProductImage = styled.img`
     width: 97px;
-    height: 112.6px;
-    object-fit: contain;
-    /* border-radius: 8px 0 0 8px; */
+    height: 112px;
+    border-radius: 8px 0 0 8px;
 `
 
 export const ProductInfo = styled.div`
     display: flex;
     flex-direction: column;
-    /* width: 50%; */
+    margin-left: 16px;
+
+    .product_name {
+        color: #DE7E5D;
+    }
+
+    .product_description {
+        color: #b8b8b8;
+    }
 `
