@@ -6,6 +6,7 @@ import { goToAddAddressPage } from "../../routes/coordinator";
 import axios from "axios";
 import useForm from "../../hooks/useForm";
 import { TextField, Button } from "@material-ui/core";
+import ReactInputMask from "react-input-mask";
 
 const SignUpPage = () => {
   const history = useHistory();
@@ -62,7 +63,8 @@ const SignUpPage = () => {
             fullWidth
             margin="normal"
           />
-          <TextField
+          <ReactInputMask
+          mask="999.999.999-99"
             name={"cpf"}
             label={"CPF"}
             value={form.cpf}

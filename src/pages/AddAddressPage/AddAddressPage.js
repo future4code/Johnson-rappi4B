@@ -111,7 +111,7 @@ const AddAddressPage = () => {
             <TextField
               name={"state"}
               label={"Estado"}
-              value={form.state}
+              value={form.state.toUpperCase()}
               onChange={onChange}
               placeholder="Ex.: SP"
               type={"text"}

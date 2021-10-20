@@ -15,6 +15,7 @@ const HomePage = () => {
   const history = useHistory();
   const [data, setdata] = useState();
   const [category, setCategory] = useState("");
+  const [inputSearch, setInputSearch] = useState("");
   const [isLoading, setisLoading] = useState(false);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const HomePage = () => {
           goToAddAddressPage(history);
         }
       });
-  }, [history]);
+  }, [history, inputSearch]);
 
   const selectCategory = (item) => {
     if (category === "") {
@@ -57,7 +58,13 @@ const HomePage = () => {
   const filterRestaurants =
     data &&
     data.filter((item) => {
-      return category === item.category;
+      if (inputSearch !== "") {
+        return item.name.toLowerCase().includes(inputSearch.toLowerCase());
+      } else if (category !== "") {
+        return category === item.category;
+      } else {
+        return item;
+      }
     });
 
   const listRestaurant =
@@ -69,7 +76,11 @@ const HomePage = () => {
   return (
     <HomePageContainer>
       <img src={LogoRappi} alt="Logo Rappi4" />
-      <Search />
+      <Search
+        data={data}
+        inputSearch={inputSearch}
+        setInputSearch={setInputSearch}
+      />
       <SnakBar
         data={data}
         selectCategory={selectCategory}
@@ -77,7 +88,7 @@ const HomePage = () => {
         removeSnack={removeSnack}
       />
       {isLoading ? <CircularIndeterminate /> : ""}
-      {category === ""
+      {inputSearch === "" && category === ""
         ? data &&
           data.map((item) => {
             return <CardRestaurant key={item.id} loja={item} />;
