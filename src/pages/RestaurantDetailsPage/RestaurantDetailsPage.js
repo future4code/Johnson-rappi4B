@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { RestaurantDetailsPageContainer, RestaurantContainer, CardRestaurant, RestaurantImage, ProductCard, ProductImage, ProductInfo } from "./styled";
+import { RestaurantDetailsPageContainer, RestaurantContainer, CardRestaurant, RestaurantImage, ProductCard, ProductImage, ProductInfo, ListProducts } from "./styled";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "./../../constants/urls";
@@ -40,28 +40,27 @@ const RestaurantDetailsPage = () => {
       
       <CardRestaurant>
         <RestaurantImage src={data && data.logoUrl} alt="foto da loja"/>
-        <p>{data && data.name}</p>
-        <p>{data && data.category}</p>
-        <div>
-          {data && data.deliveryTime}-Min
-          Frete R$ {data && data.shipping.toFixed(2).replace(".", ",")}
-        </div>
-        <p>{data && data.address}</p>
-        {/* {data && data.description}  */}
+          <span className="restaurant_name">{data && data.name}</span>
+          <span className="restaurant_category">{data && data.category}</span>
+          <div>
+            <span>{data && data.deliveryTime}-Min</span>
+            <span>Frete R$ {data && data.shipping.toFixed(2).replace(".", ",")}</span>
+          </div>
+          <span className="restaurant_address">{data && data.address}</span>
       </CardRestaurant >
       {data &&
       data.products.map((i) => {
         return (
-          <div key={i.id}>
+          <ListProducts key={i.id}>
             <ProductCard>
               <ProductImage src={i.photoUrl} alt="foto do produto"/>
               <ProductInfo>
-                <span>{i.name}</span>
-                <span>{i.description}</span>
-                <span>{i.price}</span>
+                <span className="product_name">{i.name}</span>
+                <span className="product_description">{i.description}</span>
+                <span className="product_price">R$ {i.price.toFixed(2).replace(".", ",")}</span>
               </ProductInfo>
             </ProductCard>
-          </div>
+          </ListProducts>
         );
       })}
     </RestaurantDetailsPageContainer>
