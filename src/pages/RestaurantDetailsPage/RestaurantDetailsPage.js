@@ -57,7 +57,7 @@ const RestaurantDetailsPage = () => {
               <ProductInfo>
                 <span className="product_name">{i.name}</span>
                 <span className="product_description">{i.description}</span>
-                <span className="product_price">R$ {i.price}</span>
+                <span className="product_price">R$ {i.price.toFixed(2).replace(".", ",")}</span>
               </ProductInfo>
             </ProductCard>
           </ListProducts>
