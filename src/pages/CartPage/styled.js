@@ -6,4 +6,8 @@ export const CartPageContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100vw;
+
+    img{
+        width: 50px;
+    }
 `
