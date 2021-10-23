@@ -19,11 +19,10 @@ import { TextField } from "@material-ui/core";
 import GlobalContextFood from "../../global/GlobalContextFood";
 
 const RestaurantDetailsPage = () => {
-  const [data, setData] = useState();
-  const [count, setCount] = useState(0);
+  const [data, setData] = useState(); 
   const [dataProducts, setDataProducts] = useState();
   const params = useParams();
-  const {cart, addValue, addRemove} = useContext(GlobalContextFood)
+  const {cart, addToCart, addRemove, Price} = useContext(GlobalContextFood)
 
   useEffect(() => {
     axios
@@ -62,7 +61,7 @@ const RestaurantDetailsPage = () => {
           <span className="restaurant_address">{data && data.address}</span>
         </CardRestaurant>
         {dataProducts &&
-          dataProducts.map((i, index) => {
+          dataProducts.map((i) => {
             return (
               <ListProducts key={i.id}>
                 <ProductCard>
@@ -82,10 +81,10 @@ const RestaurantDetailsPage = () => {
                             color="red"
                           />
                         </span>
-                        <p>{i.quantity || 0}</p>
+                        <p>{cart.quantity}</p>
                         <span>
                           <CgAdd
-                            onClick={() => addValue(i)}
+                            onClick={() => addToCart(i)}
                             size="20px"
                             color="red"
                           />
