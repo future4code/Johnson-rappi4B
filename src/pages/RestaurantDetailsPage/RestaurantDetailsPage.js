@@ -18,15 +18,16 @@ import { CgAdd, CgRemove } from "react-icons/cg";
 import { TextField } from "@material-ui/core";
 
 const RestaurantDetailsPage = () => {
-  const [data, setdata] = useState();
-  const [count, setCount] = useState(Number(0));
+  const [data, setData] = useState();
+  const [count, setCount] = useState(0);
+  const [dataProducts, setDataProducts] = useState();
   const params = useParams();
 
   useEffect(() => {
     getDetail();
   }, []);
 
-  const getDetail = (id) => {
+  const getDetail = () => {
     axios
       .get(`${BASE_URL}/restaurants/${params.id}`, {
         headers: {
@@ -34,19 +35,28 @@ const RestaurantDetailsPage = () => {
         },
       })
       .then((res) => {
-        setdata(res.data.restaurant);
+        setData(res.data.restaurant);
+        setDataProducts(res.data.restaurant.products);
       })
       .catch((e) => {
-        alert(e.response.data.message);
+        alert(e.message);
       });
   };
 
-  const addCount = (element) => {
-    if (element === data.products.id) setCount(+1);
+  const addValue = (id, index) => {
+    setCount(count + 1);
+    const newData = [{ ...dataProducts[index - 1], quantity: count }];
+    if (id === dataProducts[index].id) {
+      setDataProducts(newData);
+    }
   };
 
-  const removeCount = (element) => {
-    alert(element.id);
+  const removeValue = (id, index) => {
+    const newData = [{ ...dataProducts[index], quantity: count }];
+    setCount(count - 1)
+    if (id) {
+      setDataProducts(newData);
+    }
   };
   return (
     <>
@@ -67,8 +77,8 @@ const RestaurantDetailsPage = () => {
           </div>
           <span className="restaurant_address">{data && data.address}</span>
         </CardRestaurant>
-        {data &&
-          data.products.map((i, index) => {
+        {dataProducts &&
+          dataProducts.map((i, index) => {
             return (
               <ListProducts key={i.id}>
                 <ProductCard>
@@ -83,15 +93,15 @@ const RestaurantDetailsPage = () => {
                       <ButtonsContainer>
                         <span>
                           <CgRemove
-                            onClick={() => removeCount(i.id)}
+                            onClick={() => removeValue(i.id, index)}
                             size="20px"
                             color="red"
                           />
                         </span>
-                        <TextField type="number" value={count} />
+                        <TextField id={i.id} value={i.quantity || 0} />
                         <span>
                           <CgAdd
-                            onClick={() => addCount(i.id)}
+                            onClick={() => addValue(i.id, index)}
                             size="20px"
                             color="red"
                           />

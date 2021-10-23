@@ -7,7 +7,11 @@ import {
   RiContactsLine,
 } from "react-icons/ri";
 import { useHistory } from "react-router-dom";
-import { goToHomePage, goToProfilePage, goToCartPage } from "./../../routes/coordinator";
+import {
+  goToHomePage,
+  goToProfilePage,
+  goToCartPage,
+} from "./../../routes/coordinator";
 
 export const FooterCard = () => {
   const history = useHistory();
@@ -17,7 +21,7 @@ export const FooterCard = () => {
       <Button onClick={() => goToHomePage(history)} variant="contained">
         <RiHome5Line size="22px" />
       </Button>
-      <Button onClik={()=> goToCartPage(history)}variant="contained">
+      <Button onClick={() => goToCartPage(history)} variant="contained">
         <RiShoppingCart2Line size="22px" />
       </Button>
       <Button onClick={() => goToProfilePage(history)} variant="contained">
