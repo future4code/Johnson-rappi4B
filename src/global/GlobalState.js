@@ -1,16 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import GlobalStateContext from "./GlobalStateContext";
+import React, { useState } from "react";
+import GlobalContextFood from "./GlobalContextFood";
 
 const GlobalState = (props) => {
-  
-  useEffect(() => {}, []);
+  const [cart, setCart] = useState([]);
+
+  const addValue = (product) => {
+    const newCart = [ ...cart, {...product, quantity: 1}];
+    setCart(newCart);
+  };
+
+  const addRemove = (product) => {
+    const newCart = [ ...cart, {...product, quantity: 0}];
+    setCart(newCart);
+  };
+
+
 
   return (
     <>
-      <GlobalStateContext.Provider>
+      <GlobalContextFood.Provider value={{cart, addValue, addRemove}}>
         {props.children}
-      </GlobalStateContext.Provider>
+      </GlobalContextFood.Provider>
     </>
   );
 };
