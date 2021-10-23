@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   RestaurantDetailsPageContainer,
   RestaurantContainer,
@@ -16,48 +16,32 @@ import { useParams } from "react-router";
 import { FooterCard } from "../../components/FooterCard/FooterCard";
 import { CgAdd, CgRemove } from "react-icons/cg";
 import { TextField } from "@material-ui/core";
+import GlobalContextFood from "../../global/GlobalContextFood";
 
 const RestaurantDetailsPage = () => {
   const [data, setData] = useState();
   const [count, setCount] = useState(0);
   const [dataProducts, setDataProducts] = useState();
   const params = useParams();
+  const {cart, addValue, addRemove} = useContext(GlobalContextFood)
 
   useEffect(() => {
-    getDetail();
-  }, []);
-
-  const getDetail = () => {
     axios
-      .get(`${BASE_URL}/restaurants/${params.id}`, {
-        headers: {
-          auth: localStorage.getItem("token"),
-        },
-      })
-      .then((res) => {
-        setData(res.data.restaurant);
-        setDataProducts(res.data.restaurant.products);
-      })
-      .catch((e) => {
-        alert(e.message);
-      });
-  };
+    .get(`${BASE_URL}/restaurants/${params.id}`, {
+      headers: {
+        auth: localStorage.getItem("token"),
+      },
+    })
+    .then((res) => {
+      setData(res.data.restaurant);
+      setDataProducts(res.data.restaurant.products);
+    })
+    .catch((e) => {
+      alert(e.message);
+    });  }, []);
 
-  const addValue = (id, index) => {
-    setCount(count + 1);
-    const newData = [{ ...dataProducts[index - 1], quantity: count }];
-    if (id === dataProducts[index].id) {
-      setDataProducts(newData);
-    }
-  };
 
-  const removeValue = (id, index) => {
-    const newData = [{ ...dataProducts[index], quantity: count }];
-    setCount(count - 1)
-    if (id) {
-      setDataProducts(newData);
-    }
-  };
+
   return (
     <>
       <RestaurantDetailsPageContainer>
@@ -93,15 +77,15 @@ const RestaurantDetailsPage = () => {
                       <ButtonsContainer>
                         <span>
                           <CgRemove
-                            onClick={() => removeValue(i.id, index)}
+                            onClick={() => addRemove(i)}
                             size="20px"
                             color="red"
                           />
                         </span>
-                        <TextField id={i.id} value={i.quantity || 0} />
+                        <p>{i.quantity || 0}</p>
                         <span>
                           <CgAdd
-                            onClick={() => addValue(i.id, index)}
+                            onClick={() => addValue(i)}
                             size="20px"
                             color="red"
                           />
