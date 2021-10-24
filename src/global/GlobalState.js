@@ -16,13 +16,11 @@ const GlobalState = (props) => {
     } else {
       newCart[position].quantity += 1;
     }
-    console.log(newCart);
 
     setCart(newCart);
   };
 
   const removeToCart = (product) => {
-
     const position = cart.findIndex((item) => {
       return item.id === product.id;
     });
@@ -40,7 +38,7 @@ const GlobalState = (props) => {
 
   return (
     <>
-      <GlobalContextFood.Provider value={{ cart, addToCart, removeToCart  }}>
+      <GlobalContextFood.Provider value={{ cart, addToCart, removeToCart }}>
         {props.children}
       </GlobalContextFood.Provider>
     </>
