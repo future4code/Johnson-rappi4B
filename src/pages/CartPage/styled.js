@@ -5,9 +5,14 @@ export const CartPageContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 80vw;
+    border: 0.5px solid gray;
+    margin: 0 10vw;
+
+   
 
     img{
-        width: 50px;
+        width: 50vw;
+        border-radius: 16px;
     }
 `

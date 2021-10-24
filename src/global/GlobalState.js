@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import GlobalContextFood from "./GlobalContextFood";
 
 const GlobalState = (props) => {
   const [cart, setCart] = useState([]);
-  const [Price,setPrice] = useState()
-
 
   const addToCart = (product) => {
     const position = cart.findIndex((item) => {
@@ -23,13 +21,13 @@ const GlobalState = (props) => {
     setCart(newCart);
   };
 
-  const addRemove = (product) => {
+  const removeToCart = (product) => {
 
     const position = cart.findIndex((item) => {
       return item.id === product.id;
     });
 
-    let newCart = [...cart];
+    const newCart = [...cart];
 
     if (newCart[position].quantity === 1) {
       newCart.splice(position, 1);
@@ -40,22 +38,9 @@ const GlobalState = (props) => {
     setCart(newCart);
   };
 
-
-
-  // ESSA FUNÇÃO EMBAIXO retorna o valor total da compra mas já temos isso da API
-
-
-  // useEffect(() => {
-  //   let newPrice = 0;
-  //   cart.forEach((product) => {
-  //     newPrice += product.price * product.quantity;
-  //   });
-  //   setPrice(newPrice);
-  // }, [cart]);
-
   return (
     <>
-      <GlobalContextFood.Provider value={{ cart, addToCart, addRemove,Price }}>
+      <GlobalContextFood.Provider value={{ cart, addToCart, removeToCart  }}>
         {props.children}
       </GlobalContextFood.Provider>
     </>

@@ -96,14 +96,13 @@ export const ProductInfo = styled.div`
 
 export const ButtonsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   width: 50%;
   
 
-  input {
-    margin: 0 auto;
-    width: 40%;
+  p {
+    margin: 0 6px;
     font-size: 18px;
   }
 `;
