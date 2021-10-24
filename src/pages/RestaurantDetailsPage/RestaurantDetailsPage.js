@@ -15,14 +15,13 @@ import { BASE_URL } from "./../../constants/urls";
 import { useParams } from "react-router";
 import { FooterCard } from "../../components/FooterCard/FooterCard";
 import { CgAdd, CgRemove } from "react-icons/cg";
-import { TextField } from "@material-ui/core";
 import GlobalContextFood from "../../global/GlobalContextFood";
 
 const RestaurantDetailsPage = () => {
   const [data, setData] = useState(); 
   const [dataProducts, setDataProducts] = useState();
   const params = useParams();
-  const {cart, addToCart, addRemove, Price} = useContext(GlobalContextFood)
+  const {cart, addToCart, removeToCart} = useContext(GlobalContextFood)
 
   useEffect(() => {
     axios
@@ -76,18 +75,19 @@ const RestaurantDetailsPage = () => {
                       <ButtonsContainer>
                         <span>
                           <CgRemove
-                            onClick={() => addRemove(i)}
-                            size="20px"
+                            onClick={() => removeToCart(i)}
+                            size="18px"
                             color="red"
                           />
                         </span>
-                        <p>{cart.quantity}</p>
+                        <p>{console.log(i.quantity) || 0}</p>
                         <span>
                           <CgAdd
                             onClick={() => addToCart(i)}
                             size="20px"
                             color="red"
                           />
+                          
                         </span>
                       </ButtonsContainer>
                     </div>
