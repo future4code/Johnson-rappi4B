@@ -21,7 +21,7 @@ export const FooterCard = () => {
       <Button onClick={() => goToHomePage(history)} variant="contained">
         <RiHome5Line size="22px" />
       </Button>
-      <Button onClick={() => goToCartPage(history)} variant="contained">
+      <Button onClick={() => goToCartPage(history, window.location.href.substring(34, 80))} variant="contained">
         <RiShoppingCart2Line size="22px" />
       </Button>
       <Button onClick={() => goToProfilePage(history)} variant="contained">
