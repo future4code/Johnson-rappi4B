@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartPageContainer } from "./styled";
 import GlobalContextFood from "../../global/GlobalContextFood";
 import axios from "axios";
@@ -9,9 +9,10 @@ import { useHistory } from 'react-router-dom';
 import { goToHomePage } from './../../routes/coordinator';
 
 const CartPage = () => {
+  const [method, setMethod] = useState('money')
   const params = useParams();
   const history = useHistory()
-  const { cart } = useContext(GlobalContextFood);
+  const { cart, productOrder } = useContext(GlobalContextFood);
 
   const getTotal = (total, item) => {
     return total + item.price * item.quantity;
@@ -20,7 +21,7 @@ const CartPage = () => {
 
 
   const closeOrder = () => {
-    const body = [{...cart, paymentMethod: "money"}];
+    const body = {products: [productOrder], paymentMethod: method};
     axios
       .post(`${BASE_URL}/restaurants/${params.id}/order`, body, {
         headers: { auth: localStorage.getItem("token") },
@@ -32,6 +33,10 @@ const CartPage = () => {
     alert("Obrigado pela Compra!");
     goToHomePage(history)
   };
+
+  const onChangeMethod = (event) => {
+    setMethod(event.target.method)
+  }
 
   return (
     <CartPageContainer>
@@ -52,7 +57,7 @@ const CartPage = () => {
           );
         })}
       <h3>Total Pagar: {amount.toFixed(2).replace(".", ",")}</h3>
-      <select>
+      <select onChange={onChangeMethod}>
         <option value="money">Dinheiro</option>
         <option value="creditcard">Cartão Crédito</option>
       </select>

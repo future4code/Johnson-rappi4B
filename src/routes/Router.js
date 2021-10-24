@@ -27,7 +27,7 @@ export default function Router() {
           component={RestaurantDetailsPage}
         />
         <Route exact path={"/resultados"} component={ResultsPage} />
-        <Route exact path={"/carrinho"} component={CartPage} />
+        <Route exact path={"/restaurante/:id/pedido"} component={CartPage} />
         <Route component={ErrorPage} />
       </Switch>
     </BrowserRouter>

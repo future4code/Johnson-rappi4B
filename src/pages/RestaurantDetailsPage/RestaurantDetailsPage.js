@@ -41,7 +41,6 @@ const RestaurantDetailsPage = () => {
 
   const getQuantity = (id) => {
     const filterQuantity = cart.find((item) => item.id === id);
-    console.log("Filter", filterQuantity)
     return filterQuantity ? filterQuantity.quantity : 0
   };
 
