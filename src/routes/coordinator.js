@@ -23,8 +23,12 @@ export const goToRestaurantDetailsPage = (history,id) => {
     history.push(`/restaurante/${id}`)
 }
 
-export const goToResultsPage = (history) => {
-    history.push("/resultados")
+export const goToActiveOrder = (history) => {
+    history.push("/pedidos")
+}
+
+export const goToHistoryOrder = (history) => {
+    history.push("/historico")
 }
 
 export const goToCartPage = (history, id) => {

@@ -6,10 +6,11 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
-import ResultsPage from "../pages/ResultsPage/ResultsPage";
 import RestaurantDetailsPage from "../pages/RestaurantDetailsPage/RestaurantDetailsPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import SplashScreenPage from "../pages/SplashScreenPage/SplashScreenPage";
+import { ActiveOrder } from "../pages/ActiveOrderPage/ActiveOrder";
+import  HistoryOrder  from "../pages/HistoryPage/HistoryOrder";
 
 export default function Router() {
   return (
@@ -26,7 +27,8 @@ export default function Router() {
           path={"/restaurante/:id"}
           component={RestaurantDetailsPage}
         />
-        <Route exact path={"/resultados"} component={ResultsPage} />
+        <Route exact path={"/pedidos"} component={ActiveOrder} />
+        <Route exact path={"/historico"} component={HistoryOrder} />
         <Route exact path={"/restaurante/:id/pedido"} component={CartPage} />
         <Route component={ErrorPage} />
       </Switch>
