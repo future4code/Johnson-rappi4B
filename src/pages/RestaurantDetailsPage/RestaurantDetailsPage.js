@@ -18,27 +18,32 @@ import { CgAdd, CgRemove } from "react-icons/cg";
 import GlobalContextFood from "../../global/GlobalContextFood";
 
 const RestaurantDetailsPage = () => {
-  const [data, setData] = useState(); 
+  const [data, setData] = useState();
   const [dataProducts, setDataProducts] = useState();
   const params = useParams();
-  const {cart, addToCart, removeToCart} = useContext(GlobalContextFood)
+  const { cart, addToCart, removeToCart } = useContext(GlobalContextFood);
 
   useEffect(() => {
     axios
-    .get(`${BASE_URL}/restaurants/${params.id}`, {
-      headers: {
-        auth: localStorage.getItem("token"),
-      },
-    })
-    .then((res) => {
-      setData(res.data.restaurant);
-      setDataProducts(res.data.restaurant.products);
-    })
-    .catch((e) => {
-      alert(e.message);
-    });  }, []);
+      .get(`${BASE_URL}/restaurants/${params.id}`, {
+        headers: {
+          auth: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        setData(res.data.restaurant);
+        setDataProducts(res.data.restaurant.products);
+      })
+      .catch((e) => {
+        alert(e.message);
+      });
+  }, []);
 
-
+  const getQuantity = (id) => {
+    const filterQuantity = cart.find((item) => item.id === id);
+    console.log("Filter", filterQuantity)
+    return filterQuantity ? filterQuantity.quantity : 0
+  };
 
   return (
     <>
@@ -80,14 +85,13 @@ const RestaurantDetailsPage = () => {
                             color="red"
                           />
                         </span>
-                        <p>{console.log(i.quantity) || 0}</p>
+                        <p>{getQuantity(i.id)}</p>
                         <span>
                           <CgAdd
                             onClick={() => addToCart(i)}
                             size="20px"
                             color="red"
                           />
-                          
                         </span>
                       </ButtonsContainer>
                     </div>
