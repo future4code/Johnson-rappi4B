@@ -17,6 +17,7 @@ const GlobalState = (props) => {
       setProductOrder({id: product.id, quantity: 1})
     } else {
       newCart[position].quantity += 1;
+      setProductOrder({id: product.id, quantity: product.quantity + 1})
     }
 
     setCart(newCart);
