@@ -17,7 +17,7 @@ const CartPage = () => {
   const getTotal = (total, item) => {
     return total + item.price * item.quantity;
   }; 
-  let amount = cart.reduce(getTotal, 0);
+  let amount = cart.reduce(getTotal, 0); 
 
 
   const closeOrder = () => {
@@ -45,7 +45,7 @@ const CartPage = () => {
         cart.map((item) => {
           return (
             <>
-              <img src={item.photoUrl} alt="" />
+              <img src={item.photoUrl} alt="Foto do Produto" />
               <p>Nome: {item.name}</p>
               <p>Quantidade: {item.quantity} undidade(s)</p>
               <p>Preço unitário: {item.price.toFixed(2).replace(".", ",")}</p>

@@ -95,7 +95,7 @@ const HomePage = () => {
           })
         : listRestaurant}
 
-      <FooterCard />
+      <FooterCard idrestaurant={data}/>
     </HomePageContainer>
   );
 };
