@@ -26,7 +26,7 @@ console.log(window.location.href.substring(22, 50))
       <Button onClick={() => goToHomePage(history)} variant="contained">
         <RiHome5Line size="22px" />
       </Button>
-      {url !== window.location.href.substring(22, 100) ? <Button onClick={() => goToCartPage(history, window.location.href.substring(34, 80))} variant="contained">
+      {url !== window.location.href.substring(31, 100) ? <Button onClick={() => goToCartPage(history, window.location.href.substring(34, 80))} variant="contained">
         <RiShoppingCart2Line size="22px" />
       </Button>:  <Button onClick={() => goToHistoryOrder(history)} variant="contained">
         <RiHistoryFill size="22px" />
