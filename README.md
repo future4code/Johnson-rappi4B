@@ -24,7 +24,7 @@ Projeto semelhante ao Rappi, app de delivery, com fluxo de cadastramento de usuÃ
 ---
 
 ## ðŸŒŽ Como acessar o projeto
-### Link Surge: http://rappi4b-johnson.surge.sh
+### Link Surge: http://rappi4-johnson.surge.sh
 
 
 
