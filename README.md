@@ -1,13 +1,10 @@
 
-# Labefoods
+# Labefoods - Rappi4B
 
-O projeto **Labe** foi desenvolvido durante o **Bootcamp da Labenu**, com o intuito de colocarmos em prática o conteúdo estudado durante a semana, praticando os conceitos de Hooks, ContextAPI, consumo API Rest
+O projeto **Labe** foi desenvolvido durante o **Bootcamp da Labenu**, com o intuito de colocarmos em prática o conteúdo estudado durante a semana, praticando os conceitos de Hooks, ContextAPI, consumo API Rest e uso de bibliotecas de estilização.
 
-<h1 align="center">
-
-</h1>
-
-<img align="center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6MugQqxfbk8n8mUDxO3OiceVPbk9zerUp_Q&usqp=CAU" alt="Foto da internet"/>
+### Desenvolvido em grupo:
+  Formação: Anderson Heidrich Leite, André Luiz Gomes Pereira e Júlio Cesar da Silva.
 
 ---
 
@@ -22,11 +19,12 @@ O projeto **Labe** foi desenvolvido durante o **Bootcamp da Labenu**, com o intu
 
 ## 🖋 Descrição do projeto
 
-Projeto baseado em 3 páginas onde o usuário tem acesso a uma lista de pokemons, e pode adicionar os mesmo em sua pokedex ou apenas visualizar os detalhes dos pokemons.
+Projeto semelhante ao Rappi, app de delivery, com fluxo de cadastramento de usuários, endereço de entrega, e o principal que é escolher um restaurante e comprar os seus produtos.
 
 ---
 
 ## 🌎 Como acessar o projeto
+### Link Surge: http://rappi4-johnson.surge.sh
 
 
 
@@ -38,6 +36,7 @@ o projeto foi desenvolvido usando as seguintes tecnologias:
 - [Styled-Components](https://styled-components.com/docs)
 - [Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html)
 - [ContextApi](https://pt-br.reactjs.org/docs/hooks-reference.html#usecontext)
+- [Material-ui](https://mui.com/)
 ---
 
 ## 💾 Como baixar o projeto
@@ -45,9 +44,7 @@ o projeto foi desenvolvido usando as seguintes tecnologias:
 - Primeiro instale o [Git](https://git-scm.com/), [Node.jS](https://nodejs.org/pt-br/download/) + [npm](https://www.npmjs.com/get-npm)
 ```bash
 # Clonar o repositório
-git clone https://github.com/future4code/Johnson-pokedex4.git
-# Entrar no diretório
-cd Pokedex
+git clone https://github.com/future4code/Johnson-rappi4B/
 
 # Instalar as dependências
 npm install
@@ -55,7 +52,3 @@ npm install
 # Rodar o projeto
 npm run start
 ```
-
-
-
-### Link Surge: https://rappi4b.surge.sh
