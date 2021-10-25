@@ -4,7 +4,7 @@
 O projeto **Labe** foi desenvolvido durante o **Bootcamp da Labenu**, com o intuito de colocarmos em prática o conteúdo estudado durante a semana, praticando os conceitos de Hooks, ContextAPI, consumo API Rest e uso de bibliotecas de estilização.
 
 ### Desenvolvido em grupo:
-  Formação: Anderson Leite Heidrich, André Luiz Gomes Pereira e Júlio Cesar da Silva.
+  Formação: Anderson Heidrich Leite, André Luiz Gomes Pereira e Júlio Cesar da Silva.
 
 ---
 
