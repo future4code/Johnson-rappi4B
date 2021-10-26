@@ -4,6 +4,7 @@ import GlobalContextFood from "./GlobalContextFood";
 const GlobalState = (props) => {
   const [cart, setCart] = useState([]);
   const [productOrder, setProductOrder] = useState([]);
+ 
 
   const addToCart = (product) => {
     const position = cart.findIndex((item) => {
@@ -17,10 +18,12 @@ const GlobalState = (props) => {
       newOrder.push({ id: product.id, quantity: 1 });
     } else {
       newCart[position].quantity += 1;
-
+      newOrder[position].quantity += 1;
+    }
 
     setProductOrder(newOrder);
     setCart(newCart);
+    
   };
 
   const removeToCart = (product) => {

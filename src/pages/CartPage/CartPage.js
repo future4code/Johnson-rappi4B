@@ -5,23 +5,21 @@ import axios from "axios";
 import { Button } from "@material-ui/core";
 import { BASE_URL } from "./../../constants/urls";
 import { useParams } from "react-router";
-import { useHistory } from 'react-router-dom';
-import { goToHomePage } from './../../routes/coordinator';
+import { useHistory } from "react-router-dom";
+import { goToHomePage } from "./../../routes/coordinator";
 
 const CartPage = () => {
-  const [method, setMethod] = useState('money')
+  const [method, setMethod] = useState("money");
   const params = useParams();
-  const history = useHistory()
+  const history = useHistory();
   const { cart, productOrder } = useContext(GlobalContextFood);
-
   const getTotal = (total, item) => {
     return total + item.price * item.quantity;
-  }; 
-  let amount = cart.reduce(getTotal, 0); 
-
+  };
+  let amount = cart.reduce(getTotal, 0);
 
   const closeOrder = () => {
-    const body = {products: [productOrder], paymentMethod: method};
+    const body = { products: productOrder, paymentMethod: method };
     axios
       .post(`${BASE_URL}/restaurants/${params.id}/order`, body, {
         headers: { auth: localStorage.getItem("token") },
@@ -31,12 +29,12 @@ const CartPage = () => {
         alert(err.response.data.message);
       });
     alert("Obrigado pela Compra!");
-    goToHomePage(history)
+    goToHomePage(history);
   };
 
   const onChangeMethod = (event) => {
-    setMethod(event.target.method)
-  }
+    setMethod(event.target.value);
+  };
 
   return (
     <CartPageContainer>

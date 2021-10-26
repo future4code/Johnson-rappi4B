@@ -21,8 +21,7 @@ const HistoryOrder = () => {
         alert(err.response.data.message);
       });
   }, []);
-
-  console.log("Dados do Historico", dataHistory);
+  
 
   return (
     <ResultsPageContainer>
@@ -43,7 +42,7 @@ const HistoryOrder = () => {
             <HistoryContainer>
               <p>Restaurante: {item.restaurantName}</p>
               <p>
-                Preço Total: {item.totalPrice.toFixed(2).replace(".", ",")} R$
+                Preço Total: R$ {item.totalPrice.toFixed(2).replace(".", ",")}
               </p>
               <p>
                 Data do Pedido:{" "}
