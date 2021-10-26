@@ -24,7 +24,6 @@ const CartPage = () => {
       .post(`${BASE_URL}/restaurants/${params.id}/order`, body, {
         headers: { auth: localStorage.getItem("token") },
       })
-      .then((res) => alert(res.data.message))
       .catch((err) => {
         alert(err.response.data.message);
       });
