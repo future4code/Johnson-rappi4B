@@ -24,10 +24,10 @@ export const FooterCard = () => {
       <Button onClick={() => goToHomePage(history)} variant="contained">
         <RiHome5Line size="22px" />
       </Button>
-      {url !== window.location.href.substring(31, 100) ? (
+      {url !== window.location.href.substring(22, 100) ? (
         <Button
           onClick={() =>
-            goToCartPage(history, window.location.href.substring(43, 100))
+            goToCartPage(history, window.location.href.substring(34, 100))
           }
           variant="contained"
         >
